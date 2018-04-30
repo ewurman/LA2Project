@@ -12,19 +12,7 @@ import random
 
 class GameB:
 
-	def __init__(self):
-		self.epsilon = 0.05
-		self.chance_one = 0.9
-		self.chance_two = .25
-		self.coin1_chance = 3
-
-	def __init__(self, epsilon):
-		self.epsilon = epsilon
-		self.chance_one = 0.9
-		self.chance_two = .25
-		self.coin1_chance = 3
-
-	def __init__(self, epsilon, chance1, chance2):
+	def __init__(self, epsilon = 0.05, chance1 = 0.9, chance2 = 0.25):
 		self.epsilon = epsilon
 		self.chance_one = chance1
 		self.chance_two = chance2
@@ -45,5 +33,16 @@ class GameB:
 				return True
 			else:
 				return False
+
+	def play(self, turns, money):
+		'''returns money after playing turns turns'''
+		i = 0
+		while(i < turns):
+			if self.play_once(money):
+				money += 1
+			else:
+				money -= 1
+			i += 1
+		return money
 
 

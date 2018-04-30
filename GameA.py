@@ -7,15 +7,7 @@ import random
 
 class GameA:
 
-	def __init__(self):
-		self.epsilon = 0.05
-		self.chance = 0.05
-
-	def __init__(self, epsilon):
-		self.epsilon = epsilon
-		self.chance = 0.05
-
-	def __init__(self, epsilon, chance):
+	def __init__(self, epsilon = 0.05, chance = 0.5):
 		self.epsilon = epsilon
 		self.chance = chance
 
@@ -28,4 +20,17 @@ class GameA:
 			return False
 		else:
 			return True
+
+	def play(self, turns, money):
+		'''returns money after playing turns turns'''
+		i = 0
+		while(i < turns):
+			if self.play_once():
+				money += 1
+			else:
+				money -= 1
+			i += 1
+		return money
+
+
 
