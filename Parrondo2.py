@@ -70,7 +70,8 @@ def __main__():
 	money, x = ga.play(turns, money)
 	print("Played GameA {0} times, money at {1}. resetting money to $100".format(turns, money))
 	money = 100
-	money, x = gb.play(turns, money)
+	#money, x = gb.play(turns, money)
+	
 	print("Played GameB {0} times, money at {1}. resetting money to $100".format(turns, money))
 	money = 100
 
@@ -79,9 +80,10 @@ def __main__():
 
 	print("Final: ${0}".format(money))
 	money = 100
-	#gb.plot(turns, money, trials)
+	ga.plot(turns, money, trials)
+	#gb.play(turns, money)
 
-	alternate_many_trials(money, turns, trials)
+	#alternate_many_trials(money, turns, trials)
 
 
 __main__()
