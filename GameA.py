@@ -63,7 +63,7 @@ class GameA:
 		plt.plot(turns_list, ave_list)
 		plt.xlabel('Coin Flips')
 		plt.ylabel('Money')
-		plt.title('Coin 1 Average Winnings Over 1000 Trials')
+		plt.title('Game A Average Winnings Over 1000 Trials')
 		plt.show()
                 
                 

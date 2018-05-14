@@ -40,22 +40,36 @@ class GameB:
 		'''returns money after playing turns turns'''
 		i = 0
 		money_list = []
+		counts = [0,0,0]
+
 		while(i < turns):
+			counts[money%3] += 1
 			if self.play_once(money):
 				money += 1
 			else:
 				money -= 1
-				
+
 			money_list.append(money)
-			
+
 			i += 1
-			
+
+		P_0 = counts[0]/turns
+		P_1 = counts[1]/turns
+		P_2 = counts[2]/turns
+
+
+		print('P(0) =', P_0)
+		print('P(1) =', P_1)
+		print('P(2) =', P_2)
+		print(P_0 + P_1 + P_2)
+
+
 		return money, money_list
 
 
 	def plot(self, turns, money, trials):
-                '''plots the average return for the given number 
-                of turns and trials'''
+		'''plots the average return for the given number
+		of turns and trials'''
 
                 i = 0
                 turns_list = np.linspace(0, turns, turns)
@@ -70,21 +84,14 @@ class GameB:
                 #print('Winning sums:', list_sum)
                 ave_list = np.multiply((1/trials), list_sum)
 
+		#print('Flips:', turns_list)
+		#print('Average winnings:', ave_list)
 
-                #print('Flips:', turns_list)
-                #print('Average winnings:', ave_list)
-                
-
-
-
-
-
-                plt.plot(turns_list, ave_list)
-                plt.xlabel('Coin Flips')
-                plt.ylabel('Money')
-                plt.title('Game B Average Winnings Over 1000 Trials')
-                plt.show()
-                
+		plt.plot(turns_list, ave_list)
+		plt.xlabel('Coin Flips')
+		plt.ylabel('Money')
+		plt.title('Game B Average Winnings Over 1000 Trials')
+		plt.show()
 
 
 
