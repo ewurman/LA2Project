@@ -8,32 +8,21 @@ def alternate_games(money, turns):
     gb = GameB()
     money_list = []
     i = 0
-    turns_2 = turns
-    while i < turns_2:
-        if ga.play_once():
-            money += 1
+    while i < turns:
+        x = random.random()
+        if x > 0.5:
+            if ga.play_once():
+                money += 1
+            else:
+                money -= 1
         else:
-            money -= 1
+            if gb.play_once(money):
+                money += 1
+            else:
+                money -= 1
         money_list.append(money)
         i += 1
-        if ga.play_once():
-            money += 1
-        else:
-            money -= 1
-        money_list.append(money)
-        i += 1
-        if gb.play_once(money):
-            money += 1
-        else:
-            money -= 1
-        money_list.append(money)
-        i += 1
-        if gb.play_once(money):
-            money += 1
-        else:
-            money -= 1
-        money_list.append(money)
-        i += 1
+       
     return money, money_list
 
 def alternate_many_trials(money, turns, trials):

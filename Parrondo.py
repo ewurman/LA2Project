@@ -32,11 +32,11 @@ def __main__():
     ga = GameA() #higher episolon to test losing game
     gb = GameB()
 
-    money = ga.play(turns, money)
-    print("Played GameA {0} times, money at {1}. resetting money to             $100".format(turns, money))
+    money, x = ga.play(turns, money)
+    print("Played GameA {0} times, money at {1}. resetting money to $100".format(turns, money))
     money = 100
-    money = gb.play(turns, money)
-    print("Played GameB {0} times, money at {1}. resetting money to             $100".format(turns, money))
+    money, x, y = gb.play(turns, money)
+    print("Played GameB {0} times, money at {1}. resetting money to $100".format(turns, money))
     money = 100
 
     print("Alternating games for {0} turns each:".format(turns))
@@ -45,7 +45,7 @@ def __main__():
     print("Final: ${0}".format(money))
     money = 100
 
-    gb.plot(turns, money, trials)
+    ga.plot(turns, money, trials)
     
 
 
