@@ -10,7 +10,7 @@ def alternate_games(money, turns):
     i = 0
     while i < turns:
         x = random.random()
-        if x > 0.5:
+        if x >= 0.5:
             if ga.play_once():
                 money += 1
             else:
