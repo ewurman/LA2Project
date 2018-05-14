@@ -12,7 +12,7 @@ import random
 
 class GameB:
 
-	def __init__(self, epsilon = 0.05, chance1 = 0.9, chance2 = 0.25):
+	def __init__(self, epsilon = 0.005, chance1 = 0.9, chance2 = 0.25):
 		self.epsilon = epsilon
 		self.chance_one = chance1
 		self.chance_two = chance2
