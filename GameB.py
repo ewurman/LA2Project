@@ -51,18 +51,18 @@ class GameB:
             money_list.append(money)
             i += 1
 
-        P_0 = counts[0]/turns
-        P_1 = counts[1]/turns
-        P_2 = counts[2]/turns
+        counts[0] = counts[0]/turns
+        counts[1] = counts[1]/turns
+        counts[2] = counts[2]/turns
 
 
-        print('P(0) =', P_0)
-        print('P(1) =', P_1)
-        print('P(2) =', P_2)
-        print(P_0 + P_1 + P_2)
+        # print('P(0) =', P_0)
+        # print('P(1) =', P_1)
+        # print('P(2) =', P_2)
+        # print(P_0 + P_1 + P_2)
 
 
-        return money, money_list
+        return money, money_list, counts
 
 
     def plot(self, turns, money, trials):
@@ -72,15 +72,24 @@ class GameB:
         i = 0
         turns_list = np.linspace(0, turns, turns)
         list_sum = np.zeros(turns)
+        list_counts = [0,0,0]
         while i < trials:
                 money = money
-                money2, money_list = self.play(turns, money)
+                money2, money_list, counts = self.play(turns, money)
                 list_sum = np.add(list_sum, money_list)
+                list_counts = np.add(list_counts, counts)
+                #print(list_counts)
                 i += 1
 
                 
         #print('Winning sums:', list_sum)
         ave_list = np.multiply((1/trials), list_sum)
+        ave_counts = np.multiply((1/trials), list_counts)
+
+        print('P(0) =', ave_counts[0])
+        print('P(1) =', ave_counts[1])
+        print('P(2) =', ave_counts[2])
+        print(ave_counts[0] + ave_counts[1] + ave_counts[2])
 
         #print('Flips:', turns_list)
         #print('Average winnings:', ave_list)
