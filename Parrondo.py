@@ -45,7 +45,7 @@ def __main__():
 	print("Final: ${0}".format(money))
 	money = 100
 
-	ga.plot(turns, money, trials)
+	gb.plot(turns, money, trials)
 	
 
 
