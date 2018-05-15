@@ -29,7 +29,9 @@ class GameA:
         '''returns money after playing turns turns'''
         i = 0
         money_list = []
+        counts = [0,0,0]
         while(i < turns):
+            counts[money%3] += 1
             if self.play_once():
                 money += 1
             else:
@@ -38,6 +40,10 @@ class GameA:
 
             
             i += 1
+        counts[0] = counts[0]/turns
+        counts[1] = counts[1]/turns
+        counts[2] = counts[2]/turns
+
         return money, money_list
 
     def plot(self, turns, money, trials):
