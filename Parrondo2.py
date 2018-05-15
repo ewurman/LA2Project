@@ -52,7 +52,7 @@ def alternate_many_trials(money, turns, trials):
     plt.plot(turns_list, ave_list)
     plt.xlabel('Coin Flips')
     plt.ylabel('Money')
-    plt.title('Game C Average Winnings Over 1000 Trials')
+    plt.title('Game C (AABB Pattern) Average Winnings Over 1000 Trials')
     plt.show()
 
 
